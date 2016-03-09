@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Destructuring | React.js Training</title>
+        <title>Atomic Design | React.js Training</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -45,10 +45,10 @@
         
     
     
-    <link rel="next" href="../../book/es6_constructs/arrow_functions.html" />
+    <link rel="next" href="../../book/thinking_in_components/atomic_component_principles.html" />
     
     
-    <link rel="prev" href="../../book/es6_constructs/template_literals.html" />
+    <link rel="prev" href="../../book/thinking_in_components/index.html" />
     
 
         
@@ -57,9 +57,9 @@
         
         
     <div class="book"
-        data-level="3.3"
-        data-chapter-title="Destructuring"
-        data-filepath="book/es6_constructs/destructuring.md"
+        data-level="4.1"
+        data-chapter-title="Atomic Design"
+        data-filepath="book/thinking_in_components/atomic_design.md"
         data-basepath="../.."
         data-revision="Wed Mar 09 2016 12:21:10 GMT-0500 (EST)"
         data-innerlanguage="">
@@ -166,7 +166,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3" data-path="book/es6_constructs/destructuring.html">
+        <li class="chapter " data-level="3.3" data-path="book/es6_constructs/destructuring.html">
             
                 
                     <a href="../../book/es6_constructs/destructuring.html">
@@ -262,7 +262,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1" data-path="book/thinking_in_components/atomic_design.html">
+        <li class="chapter active" data-level="4.1" data-path="book/thinking_in_components/atomic_design.html">
             
                 
                     <a href="../../book/thinking_in_components/atomic_design.html">
@@ -382,48 +382,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="destructuring">Destructuring</h1>
-<p>Destructuring is a way to quickly extract data out of an <code>{}</code> or <code>[]</code> without
-having to write much code.</p>
-<p>To <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" title="MDN Destructuring" target="_blank">borrow from the MDN</a>, destructuring can be used to turn the
-following:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> foo = [<span class="hljs-string">&apos;one&apos;</span>, <span class="hljs-string">&apos;two&apos;</span>, <span class="hljs-string">&apos;three&apos;</span>];
-
-<span class="hljs-keyword">let</span> one   = foo[<span class="hljs-number">0</span>];
-<span class="hljs-keyword">let</span> two   = foo[<span class="hljs-number">1</span>];
-<span class="hljs-keyword">let</span> three = foo[<span class="hljs-number">2</span>];
-</code></pre>
-<p>into</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> foo = [<span class="hljs-string">&apos;one&apos;</span>, <span class="hljs-string">&apos;two&apos;</span>, <span class="hljs-string">&apos;three&apos;</span>];
-<span class="hljs-keyword">let</span> [one, two, three] = foo;
-<span class="hljs-built_in">console</span>.log(one); <span class="hljs-comment">// &apos;one&apos;</span>
-</code></pre>
-<p>This is pretty interesting, but at first it might be hard to see the use case.
-ES6 also supports Object destructuring, which might make uses more obvious:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> myModule = {
-  drawSquare: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawSquare</span>(<span class="hljs-params">length</span>) </span>{ <span class="hljs-comment">/* implementation */</span> },
-  drawCircle: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawCircle</span>(<span class="hljs-params">radius</span>) </span>{ <span class="hljs-comment">/* implementation */</span> },
-  drawText: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawText</span>(<span class="hljs-params">text</span>) </span>{ <span class="hljs-comment">/* implementation */</span> },
-};
-
-<span class="hljs-keyword">let</span> {drawSquare, drawText} = myModule;
-
-drawSquare(<span class="hljs-number">5</span>);
-drawText(<span class="hljs-string">&apos;hello&apos;</span>);
-</code></pre>
-<p>Destructuring can also be used for passing objects into a function, allowing you to pull specific properties out of an object in a concise manner. It is also possible to assign default values to destructured arguments, which can be a useful pattern if passing in a configuration object.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> jane = { firstName: <span class="hljs-string">&apos;Jane&apos;</span>, lastName: <span class="hljs-string">&apos;Doe&apos;</span>};
-<span class="hljs-keyword">let</span> john = { firstName: <span class="hljs-string">&apos;John&apos;</span>, lastName: <span class="hljs-string">&apos;Doe&apos;</span>, middleName: <span class="hljs-string">&apos;Smith&apos;</span> }
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayName</span>(<span class="hljs-params">{firstName, lastName, middleName = &apos;N/A&apos;}</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello <span class="hljs-subst">${firstName}</span> <span class="hljs-subst">${middleName}</span> <span class="hljs-subst">${lastName}</span>`</span>)  
-}
-
-sayName(jane) <span class="hljs-comment">// -&gt; Hello Jane N/A Doe</span>
-sayName(john) <span class="hljs-comment">// -&gt; Helo John Smith Doe</span>
-</code></pre>
-<p>There are <em>many</em> more sophisticated things that can be done with destructuring,
-and the <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" title="MDN Destructuring" target="_blank">mdn</a> has some great examples, including nested Object
-destructuring, and dynamic destructing during for-ins iterators.</p>
+                        <h1 id="atomic-design">Atomic Design</h1>
+<p><a href="http://bradfrost.com/blog/post/atomic-web-design/" target="_blank">http://bradfrost.com/blog/post/atomic-web-design/</a></p>
+<blockquote>
+<p><em>We&apos;re not designing pages, we&apos;re designing systems of components</em>
+-- Stephen Hay</p>
+</blockquote>
+<h1 id="atomic-design-principles">Atomic Design Principles</h1>
+<p><img src="../../images/atomic-design.png" alt=""></p>
+<p>But we are designing a <em>single-page application</em>. We should never think of our interfaces as <em>Pages</em>.</p>
+<p>Instead we should think in terms of <em>stateless</em>, <em>dynamic abstractions</em>, which are rendered based on the state provided</p>
 
                     
                     </section>
@@ -434,10 +402,10 @@ destructuring, and dynamic destructing during for-ins iterators.</p>
         </div>
 
         
-        <a href="../../book/es6_constructs/template_literals.html" class="navigation navigation-prev " aria-label="Previous page: Template Literals"><i class="fa fa-angle-left"></i></a>
+        <a href="../../book/thinking_in_components/index.html" class="navigation navigation-prev " aria-label="Previous page: Thinking in Components"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../book/es6_constructs/arrow_functions.html" class="navigation navigation-next " aria-label="Next page: Arrow Functions"><i class="fa fa-angle-right"></i></a>
+        <a href="../../book/thinking_in_components/atomic_component_principles.html" class="navigation navigation-next " aria-label="Next page: Atomic Component Principles"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
