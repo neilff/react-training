@@ -11,7 +11,7 @@ This book walks the reader through everything they need to know from getting sta
 
 - To build a web application with ReactJS, ImmutableJS, and Redux.
 - The process used to build an app using component based architecture.
-- The benefits of global app-state, and leverage the power of Redux flux architecture.
+- The benefits of having a single global application state and how to leverage the power of Redux's flux-inspired architecture.
 
 
 ## Tools
