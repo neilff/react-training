@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 
 import ProfileCard from './ProfileCard';
 import Button from './Button';
@@ -29,12 +29,12 @@ const ProfileList = ({ list, removeItem }) => {
                   </p>
                 </ProfileCard>
             );
-          })
+          });
         })()
       }
     </div>
   );
-}
+};
 
 ProfileList.propTypes = {
   /**

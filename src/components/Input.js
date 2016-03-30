@@ -8,8 +8,8 @@ const Input = ({ key, type, onChange, value, placeholder }) => {
       style={{ minWidth: '100%' }}
       type={ type }
       onChange={ (e) => {
-        console.log('e.target.value :: ', e.target.value)
-        console.log('current value :: ', value)
+        console.log('e.target.value :: ', e.target.value);
+        console.log('current value :: ', value);
         onChange(e.target.value);
       } }
       value={ value }

@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 
 import ProfileList from '../components/ProfileList';
 import ProfileForm from '../components/ProfileForm';
@@ -7,7 +7,7 @@ let GUID = 2;
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       name: '',
@@ -16,17 +16,17 @@ class App extends Component {
         {
           id: 0,
           name: 'Steve',
-          description: 'Steve is cool!'
+          description: 'Steve is cool!',
         },
         {
           id: 1,
           name: 'Pam',
-          description: 'Pam is super cool!'
+          description: 'Pam is super cool!',
         },
         {
           id: 2,
           name: 'Lisa',
-          description: 'But Lisa is the coolest!'
+          description: 'But Lisa is the coolest!',
         },
       ],
     };
