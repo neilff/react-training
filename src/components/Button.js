@@ -4,8 +4,8 @@ const buttonStatus = {
   success: 'bg-green',
   warning: 'bg-orange',
   primary: 'bg-blue',
-  danger: 'bg-red'
-}
+  danger: 'bg-red',
+};
 
 const Button = ({ type, onClick, status, children }) => {
   return (
