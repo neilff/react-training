@@ -3,7 +3,7 @@
 Sometimes we want to update multiple properties. We can do this using the `merge` method.
 
 ```js
-let baseButton = Immutable.Map<string, any>({
+let baseButton = Immutable.Map({
   text: 'Click me!',
   state: 'inactive',
   width: 200,
