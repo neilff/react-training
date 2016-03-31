@@ -6,4 +6,4 @@
 
 ## Answer
 
-{%s%}Use the Immutable list's <i>updateIn</i> method.{%ends%}
+{%s%}Use the Immutable list's <i>setIn</i> method.{%ends%}
