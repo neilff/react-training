@@ -4,7 +4,7 @@
 ```js
 import * as Immutable from 'immutable';
 
-let movie1 = Immutable.Map<string, any>({
+let movie1 = Immutable.Map({
   name: 'Star Wars',
   episode: 7
 });
