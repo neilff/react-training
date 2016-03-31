@@ -3,7 +3,7 @@
 Maps in Immutable.js are _iterable_, meaning that you can `map`, `filter`, `reduce`, etc. each key-value pair in the map.
 
 ```js
-let features = Immutable.Map<string, boolean>({
+let features = Immutable.Map({
 	'send-links': true,
 	'send-files': true,
 	'local-storage': true,
