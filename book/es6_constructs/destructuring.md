@@ -52,8 +52,54 @@ sayName(jane) // -> Hello Jane N/A Doe
 sayName(john) // -> Helo John Smith Doe
 ```
 
-There are _many_ more sophisticated things that can be done with destructuring,
-and the [mdn][mdnDest] has some great examples, including nested Object
-destructuring, and dynamic destructing during for-ins iterators.
+The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables  (for destructuring assignment) are expected.
 
-[mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring"
+For Arrays:
+```js
+const fruits = ['apple', 'banana'];
+const veggies = ['cucumber', 'potato'];
+
+const food = ['grapes', ...fruits, ...veggies];
+// -> ["grapes", "apple", "banana", "cucumber", "potato"]
+
+const [fav, ...others] = food;
+console.log(fav); // -> "grapes"
+console.log(others); // -> ["apple", "banana", "cucumber", "potato"]
+```
+
+For Objects:
+```js
+const member = {
+  name: 'Ben',
+  title: 'software developer',
+  skills: ['javascrip:t', 'react', 'redux'],
+};
+
+const memberWithMetadata = {
+  ...member,
+  previousProjects: ['BlueSky', 'RedOcean'];
+};
+
+// behind the scenes:
+const memberWithMetadata = Object.assign(member, {previousProjects: ['BlueSky', 'RedOcean']});
+
+console.log(memberWithMetadata.name); // -> "Ben"
+console.log(Object.keys(memberWithMetadata)); // -> ["apple", "banana", "cucumber", "potato"]
+```
+
+For function calls:
+```js
+const food = ['grapes', 'apple', 'banana', 'cucumber', 'potato'];
+function eat() {
+  console.log(...arguments);
+}
+
+eat(...food)
+// -> grapes apple banana cucumber potato
+```
+
+## Further reading
+* [MDN Destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [ES6 In Depth: Destructuring](https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/)
+* [Destructuring Assignment in ECMAScript 6](http://fitzgeraldnick.com/weblog/50/)
+* [Object.assign()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
