@@ -33,7 +33,7 @@ class StatefulComponent extends Component {
 
   /**
    * Stateful components can have internal methods which can access the
-   * internal state of the component, it's props, or even the DOM.
+   * internal state of the component, its props, or even the DOM.
    *
    * For more information on DOM access from a component, see:
    * https://facebook.github.io/react/docs/working-with-the-browser.html#refs-and-finddomnode
