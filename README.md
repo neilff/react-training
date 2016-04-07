@@ -12,6 +12,7 @@ This folder contains the original sketch files if you wish to modify the mockups
 
 ## Git Book
 
+
 Online editor available at: https://www.gitbook.com/book/rangle-io/react-training
 
 To run it locally:
