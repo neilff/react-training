@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ProfileList from './components/profile-list';
+import App from './containers/app';
 
 ReactDOM.render(
-  <ProfileList />,
+  <App />,
   document.getElementById('root')
 );

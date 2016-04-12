@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import ProfileImage from './profile-image';
+import PrimaryButton from './primary-button';
 
 const Card = ({ children, person, onDelete, onSelect }) => {
   return (
@@ -10,10 +11,10 @@ const Card = ({ children, person, onDelete, onSelect }) => {
       </div>
       <input type="checkbox"
         onClick={ onSelect.bind(null, person) }/>
-      <button onClick={ onDelete.bind(null, person) }
+      <PrimaryButton onClick={ onDelete.bind(null, person) }
         className="btn btn-primary">
         Delete
-      </button>
+      </PrimaryButton>
     </div>
   );
 };
