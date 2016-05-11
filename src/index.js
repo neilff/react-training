@@ -8,7 +8,6 @@ import { fromJS } from 'immutable';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-import { syncHistory, routeReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 
 import * as reducers from './reducers/index';
@@ -25,10 +24,15 @@ import Navigator from './containers/Navigator';
 import Home from './containers/Home';
 import Matches from './containers/Matches';
 import Topics from './containers/Topics';
+import { createTracker } from 'redux-segment';
+import { routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+const tracker = createTracker();                                   // Create the tracker...
 
 // Configure our reducer
 const reducer = combineReducers(Object.assign({}, reducers, {
-  routing: routeReducer,
+  routing: routerReducer,
   form: formReducer,
 }));
 
@@ -51,16 +55,16 @@ const storageConfig = {
 };
 
 // Syncs route actions to the history
-const reduxRouterMiddleware = syncHistory(browserHistory);
+
 
 // Configure our store
 const store = compose(
   persistState(['ui'], storageConfig),
   applyMiddleware(
-    reduxRouterMiddleware,
     thunk,
     sagaMiddleware(pollMatches, updateMatches),
     logger,
+    tracker
   )
 )(createStore)(reducer, {});
 
@@ -79,9 +83,10 @@ store.subscribe(() => {
   }
 });
 
+const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <Provider store={ store }>
-    <Router history={ browserHistory }>
+    <Router history={ history }>
       <Route component={ Navigator }>
         <Route path="/" component={ Home }/>
         <Route path="matches" component={ Matches }/>

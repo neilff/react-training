@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-
+import { EventTypes } from 'redux-segment';
 import * as topics from '../api/topics';
 
 export const CREATE_TOPIC_PENDING = '@@reactTraining/CREATE_TOPIC_PENDING';
@@ -48,8 +48,19 @@ function createTopicPending() {
   return { type: CREATE_TOPIC_PENDING };
 }
 
-function createTopicSuccess(res) {
-  return { type: CREATE_TOPIC_SUCCESS, payload: res };
+function createTopicSuccess(res, title, description) {
+  return { type: CREATE_TOPIC_SUCCESS,
+    payload: res,
+    meta: {
+      analytics: {
+        eventType: EventTypes.track,
+        eventPayload: {
+          type: CREATE_TOPIC_SUCCESS,
+          properties: { title, description },
+        },
+      },
+    },
+  };
 }
 
 function createTopicError(err) {
@@ -66,7 +77,7 @@ export function createTopic({ title, description }) {
 
     return topics.create(title, description)
       .then(res => {
-        dispatch(createTopicSuccess(res));
+        dispatch(createTopicSuccess(res, title, description));
         dispatch({ type: 'redux-form/RESET', form: 'topic' });
       })
       .then(null, err => dispatch(createTopicError(err)));

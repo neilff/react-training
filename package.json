@@ -15,13 +15,14 @@
       "react": "npm:react@^0.14.6",
       "react-dom": "npm:react-dom@^0.14.6",
       "react-redux": "npm:react-redux@^4.1.2",
-      "react-router": "npm:react-router@^2.0.0-rc5",
-      "react-router-redux": "npm:react-router-redux@^2.1.0",
+      "react-router": "npm:react-router@^2.4.0",
+      "react-router-redux": "npm:react-router-redux@^4.0.4",
       "redux": "npm:redux@^3.1.5",
       "redux-form": "npm:redux-form@^4.1.6",
       "redux-localstorage": "npm:redux-localstorage@^0.4.0",
       "redux-logger": "npm:redux-logger@^2.4.0",
       "redux-saga": "npm:redux-saga@^0.6.0",
+      "redux-segment": "npm:redux-segment@^0.7.2",
       "redux-thunk": "npm:redux-thunk@^1.0.3"
     },
     "devDependencies": {

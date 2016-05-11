@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import Parse from 'parse';
 
 import * as users from '../api/users';
-
+import { EventTypes } from 'redux-segment';
 export const LOGIN_PENDING = '@@reactTraining/LOGIN_PENDING';
 export const LOGIN_SUCCESS = '@@reactTraining/LOGIN_SUCCESS';
 export const LOGIN_ERROR = '@@reactTraining/LOGIN_ERROR';
@@ -84,16 +84,29 @@ function sessionReducer(state = INITIAL_STATE, action = {}) {
 
 export function login({ username, password }) {
   return (dispatch) => {
-    dispatch({ type: LOGIN_PENDING });
+    dispatch({ type: LOGIN_PENDING, meta: {
+      analytics: reduxSegment.EventTypes.track,
+    } });
 
     return users.login(username, password)
       .then(res => dispatch({
         type: LOGIN_SUCCESS,
         payload: res,
+        meta: {
+          analytics: {
+          eventType: reduxSegment.EventTypes.identify,
+          eventPayload: {
+          userId: username
+        }
+        }
+    },
       }))
       .then(null, err => dispatch({
         type: LOGIN_ERROR,
         payload: err,
+        meta: {
+      analytics: reduxSegment.EventTypes.track,
+    }
       }));
   };
 }
