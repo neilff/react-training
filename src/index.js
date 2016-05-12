@@ -24,11 +24,8 @@ import Navigator from './containers/Navigator';
 import Home from './containers/Home';
 import Matches from './containers/Matches';
 import Topics from './containers/Topics';
-import { createTracker } from 'redux-segment';
 import { routerReducer } from 'react-router-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
-
-const tracker = createTracker();                                   // Create the tracker...
 
 // Configure our reducer
 const reducer = combineReducers(Object.assign({}, reducers, {
@@ -63,8 +60,7 @@ const store = compose(
   applyMiddleware(
     thunk,
     sagaMiddleware(pollMatches, updateMatches),
-    logger,
-    tracker
+    logger
   )
 )(createStore)(reducer, {});
 

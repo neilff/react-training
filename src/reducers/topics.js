@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-
+import { EventTypes } from 'redux-segment';
 import * as topics from '../api/topics';
 
 export const TOPICS_LOADING = '@@reactTraining/TOPICS_LOADING';
@@ -38,23 +38,37 @@ function topicsReducer(state = INITIAL_STATE, action = {}) {
 }
 
 function requestTopicsPending() {
-  return { type: TOPICS_LOADING };
+  return {
+    type: TOPICS_LOADING,
+  };
 }
 
 function requestTopicsSuccess(res) {
-  return { type: REQUEST_TOPICS_SUCCESS, payload: res };
+  return {
+    type: REQUEST_TOPICS_SUCCESS,
+    payload: res,
+  };
 }
 
 function requestTopicsError(err) {
-  return { type: REQUEST_TOPICS_ERROR, payload: err };
+  return {
+    type: REQUEST_TOPICS_ERROR,
+    payload: err,
+  };
 }
 
 function markInterestedSuccess(res) {
-  return { type: MARK_INTERESTED_SUCCESS, payload: res };
+  return {
+    type: MARK_INTERESTED_SUCCESS,
+    payload: res,
+  };
 }
 
 function markUninterestedSuccess(res) {
-  return { type: MARK_UNINTERESTED_SUCCESS, payload: res };
+  return {
+    type: MARK_UNINTERESTED_SUCCESS,
+    payload: res,
+  };
 }
 
 export function requestTopics() {

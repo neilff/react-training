@@ -48,18 +48,9 @@ function createTopicPending() {
   return { type: CREATE_TOPIC_PENDING };
 }
 
-function createTopicSuccess(res, title, description) {
+function createTopicSuccess(res) {
   return { type: CREATE_TOPIC_SUCCESS,
     payload: res,
-    meta: {
-      analytics: {
-        eventType: EventTypes.track,
-        eventPayload: {
-          type: CREATE_TOPIC_SUCCESS,
-          properties: { title, description },
-        },
-      },
-    },
   };
 }
 
@@ -77,7 +68,7 @@ export function createTopic({ title, description }) {
 
     return topics.create(title, description)
       .then(res => {
-        dispatch(createTopicSuccess(res, title, description));
+        dispatch(createTopicSuccess(res));
         dispatch({ type: 'redux-form/RESET', form: 'topic' });
       })
       .then(null, err => dispatch(createTopicError(err)));

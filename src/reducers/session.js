@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 import Parse from 'parse';
 
 import * as users from '../api/users';
@@ -92,20 +93,12 @@ export function login({ username, password }) {
       .then(res => dispatch({
         type: LOGIN_SUCCESS,
         payload: res,
-        meta: {
-          analytics: {
-            eventType: reduxSegment.EventTypes.identify,
-            eventPayload: {
-              userId: username,
-            },
-          },
-        },
       }))
       .then(null, err => dispatch({
         type: LOGIN_ERROR,
         payload: err,
         meta: {
-          analytics: reduxSegment.EventTypes.track,
+          analytics: EventTypes.track,
         },
       }));
   };
