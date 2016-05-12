@@ -5,13 +5,11 @@
 Expected Result
 
 ```js
-[
   {
     blue: 3,
     brown: 1,
     green: 1
   }
-]
 ```
 
 ---
