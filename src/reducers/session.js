@@ -85,7 +85,7 @@ function sessionReducer(state = INITIAL_STATE, action = {}) {
 export function login({ username, password }) {
   return (dispatch) => {
     dispatch({ type: LOGIN_PENDING, meta: {
-      analytics: reduxSegment.EventTypes.track,
+      analytics: EventTypes.track,
     } });
 
     return users.login(username, password)
@@ -94,19 +94,19 @@ export function login({ username, password }) {
         payload: res,
         meta: {
           analytics: {
-          eventType: reduxSegment.EventTypes.identify,
-          eventPayload: {
-          userId: username
-        }
-        }
-    },
+            eventType: reduxSegment.EventTypes.identify,
+            eventPayload: {
+              userId: username,
+            },
+          },
+        },
       }))
       .then(null, err => dispatch({
         type: LOGIN_ERROR,
         payload: err,
         meta: {
-      analytics: reduxSegment.EventTypes.track,
-    }
+          analytics: reduxSegment.EventTypes.track,
+        },
       }));
   };
 }
