@@ -76,14 +76,18 @@ let movie = Immutable.fromJS({
 
 movie = movie
   .update('actors', actors => actors.pop())
-  .setIn(['mpaa', 'rating'], 'PG');
+  .setIn(['mpaa', 'rating'], 'PG')
+  .update('actors', actors => actors.push({
+        name: 'John Boyega',
+        character: 'Finn'
+   }));
 
 console.log(movie.toObject());
 
 /* writes
 { name: 'Star Wars',
   episode: 7,
-  actors: List [ Map { "name": "Daisy Ridley", "character": "Rey" } ],
+  actors: List [ Map { "name": "Daisy Ridley", "character": "Rey" } , Map { "name": "John Boyega", "character": "Finn" }],
   mpaa: Map { "rating": "PG", "reason": "sci-fi action violence" } }
 */
 ```
