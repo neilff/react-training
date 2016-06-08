@@ -1,6 +1,6 @@
 # Configuring Your Application to Use Redux
 
-Once you have the reducers and actions created, it is time to configure your application to make use of redux. For this, we will need to:
+Once you have the reducers and actions created, it is time to configure your application to make use of Redux. For this, we will need to:
 
 * Create our application reducer
 * Create and configure a store
@@ -33,7 +33,7 @@ function counterReducer(state = INITIAL_STATE, action = {}) {
 const rootReducer = combineReducers({ counter: counterReducer });
 ```
 
-What `combineReducers` does, is allows us to break out our application into smaller reducers with a single area of concern. Each reducer that you pass into it, will become a property on the state. So when we are subscribing to our state changes, we will be passed in a state object with a property counter, and any other reducers you have provided.
+What `combineReducers` does, is allows us to break out our application into smaller reducers with a single area of concern. **Each reducer that you pass into it, will become a property on the state. So when we are subscribing to our state changes, we will be passed in a state object with a property counter, and any other reducers you have provided.**
 
 
 ### Create and Configure a Store
@@ -56,7 +56,7 @@ const store = compose(
 In this example, we are creating a store that is using the `thunk` middleware, which will allow our actions to return non-JSON objects such as promises. We could also use other middlewares such as `redux-logger`, which will provides some logging functionality to the application.
 
 
-### Register the Provider With Angular 2
+### Subscribe to State Changes
 
 Now that we have created our state reducer, and created a store. We now need to subscribe to the store and update our view with the latest state.
 
