@@ -56,3 +56,8 @@
    * [Configuring your Application to use Redux](book/redux/configuring_your_application_to_use_redux.md)
    * [Using Redux with Components](book/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](book/redux/redux_and_component_architecture.md)
+* [Testing](book/testing/index.md)
+   * [Setup](book/testing/setup.md)
+   * [Components](book/testing/components.md)
+   * [Reducers](book/testing/reducers.md)
+   * [Actions](book/testing/actions.md)
