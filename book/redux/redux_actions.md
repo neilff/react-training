@@ -27,7 +27,7 @@ export function decrement() {
 
 ```
 
-As you can see, the actions creators are simple functions that take parameters, and return a JSON object containing more information. The typical Redux action tends to contain the properties:
+As you can see, the actions creators are simple functions that take parameters, and return a JSON object containing more information. Actions follows the [Flux Standard Action](https://github.com/acdlite/flux-standard-action) and contain the properties:
 
 * **type**: a string/enum representing the action
 * **payload**: the data that you want to pass into the reducer if applicable

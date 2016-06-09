@@ -29,7 +29,7 @@ How it differs from traditional Flux though, is that instead of multiple stores,
 
 - Reducers are responsible for modifying the state tree
 	- Pure functions
-	- Take in previous state, and action, and return new state
+	- Take in previous state, action, and return new state
 	- Can be split out into smaller reducers to manage specific parts of state tree
 
 
@@ -39,3 +39,4 @@ How it differs from traditional Flux though, is that instead of multiple stores,
 * [React-Redux - React Bindings for Redux](https://github.com/reactjs/react-redux)
 * [React Redux Starter Kit](https://github.com/rangle/react-redux-starter)
 * [Getting Started with Redux - Egghead.io](https://egghead.io/series/getting-started-with-redux)
+* [Idiomatic Redux - Egghead.io](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)

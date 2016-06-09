@@ -23,7 +23,7 @@ export default function counter(state = 0, action) {
 }
 ```
 
-We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explicitly subscribe to the dispatcher - every action gets passed into every reducer, handles the action it is interested in, and otherwise returns the state along to the next reducer.
+We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explicitly subscribe to the dispatcher - **every action gets passed into every reducer, which handles the action it is interested in or otherwise returns the state along to the next reducer.**
 
 Reducers in Redux should be side-effect free, that means that they should not modify things outside of the application state. Instead, they should reflect the state of the application. This is why side-effect causing operations, such as updating a record in a database, generating an id, etc should be handled elsewhere in the application - such as in the action creators, or middleware.
 
