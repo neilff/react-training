@@ -59,6 +59,11 @@
 * [Routing](book/routing/index.md)
    * [React Router](book/routing/react_router.md)
    * [Router Redux](book/routing/router_redux.md)
+<<<<<<< Updated upstream
+=======
+* [Forms](book/forms/index.md)
+   * [Redux Form](book/forms/redux_form.md)    
+>>>>>>> Stashed changes
 * [Testing](book/testing/index.md)
    * [Setup](book/testing/setup.md)
    * [Components](book/testing/components.md)
