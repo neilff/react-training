@@ -1,4 +1,4 @@
-# Routing in React
+# Forms in React
 
 This section will look at setting up [Redux Form](http://redux-form.com/).
 
