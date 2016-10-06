@@ -22,7 +22,7 @@ Students should have the following tools installed:
 
 The React toolchain is quite command-line oriented, so we suggest installing a good command-line terminal program.
 
-For **Mac OS X**, we recommend [iTerm2](https://www.iterm2.com/downloads.html).  
+For **macOS**, we recommend [iTerm2](https://www.iterm2.com/downloads.html).  
 For **Windows**, we recommend using [Git Bash](http://git-scm.com/download/) (also comes with git – see below).
 
 
@@ -30,7 +30,7 @@ For **Windows**, we recommend using [Git Bash](http://git-scm.com/download/) (al
 
 We'll be using Git from the command line: http://git-scm.com/download/
 
-##### Tips for Mac OS X users
+##### Tips for macOS users
 
 If you have [homebrew](http://brew.sh/) installed, you may install Git by simply issuing: `brew install git`.
 
@@ -39,7 +39,7 @@ If you have [homebrew](http://brew.sh/) installed, you may install Git by simply
 - When in doubt, select the default options in the installation wizard.
 - The rest of this training assumes you are using the terminal that comes with Git (Git Bash) to run all command-line examples.
 
-_Notes: The official Git download provides several GUI tools, for both OS X and Windows. If you are proficient with these interfaces, feel free to use them. This training, however, will only provide instructions from the command-line._
+_Notes: The official Git download provides several GUI tools, for both macOS and Windows. If you are proficient with these interfaces, feel free to use them. This training, however, will only provide instructions from the command-line._
 
 ### Node.js
 
@@ -49,7 +49,7 @@ The download above should install two commands: `node` and `npm`.
 
 `npm` may require some extra configuration to set permissions properly on your system.
 
-On __Mac OS X__, do the following:
+On __macOS__, do the following:
 
 ```sh
 npm config set prefix ~/.npm
