@@ -69,12 +69,14 @@ class Toppings {
   outputList() {
     this.toppings
       .forEach((topping, i) => console
-        .log(topping, i + '/' + this.toppings.length);  // `this` works! 
+        .log(topping, i + '/' + this.toppings.length)  // `this` works!
     )
   }
 }
 
 var ctrl = new Toppings(['cheese', 'lettuce']);
+
+ctrl.outputList();
 ```
 
 Here `this` inside the arrow function refers to the instance variable.
@@ -82,4 +84,3 @@ Here `this` inside the arrow function refers to the instance variable.
 *Warning* arrow functions do _not_ have their own `arguments` variable, this
 can be confusing to veteran JavaScript programmers. `super`, and `new.target`
 are also scoped from the outer enclosure.
-
