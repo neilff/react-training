@@ -77,14 +77,14 @@ const member = {
 
 const memberWithMetadata = {
   ...member,
-  previousProjects: ['BlueSky', 'RedOcean'];
+  previousProjects: ['BlueSky', 'RedOcean']
 };
 
 // behind the scenes:
 const memberWithMetadata = Object.assign(member, {previousProjects: ['BlueSky', 'RedOcean']});
 
 console.log(memberWithMetadata.name); // -> "Ben"
-console.log(Object.keys(memberWithMetadata)); // -> ["apple", "banana", "cucumber", "potato"]
+console.log(Object.keys(memberWithMetadata)); // -> name,title,skills,previousProjects
 ```
 
 For function calls:
