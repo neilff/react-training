@@ -1,4 +1,4 @@
-# react-training
+# react-training (deprecated!)
 
 ## Additional Resources
 
